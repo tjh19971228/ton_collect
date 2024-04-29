@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from "vue";
-import TonWeb from "tonweb";
+// import TonWeb from "tonweb";
 import vconsole from "vconsole";
 
-const tonweb = new TonWeb();
+// const tonweb = new TonWeb();
 new vconsole();
 import { TonConnectUI } from "@tonconnect/ui";
 
@@ -34,7 +34,7 @@ defineProps({
 
 const count = ref(0);
 
-console.log(tonweb.utils.toNano("2000000"));
+// console.log(tonweb.utils.toNano("2000000"));
 const transaction = {
   messages: [
     {
