@@ -39,7 +39,7 @@ const transaction = {
   messages: [
     {
       address: "0QDHx6SZztlphvTb1Yh1GOwsxi9P1bHrPZNKiaFdFE6YlIVl", // 目的地址
-      amount: 2000000, //以nanotons计的Toncoin
+      amount: 500000, //以nanotons计的Toncoin
     },
   ],
 };
