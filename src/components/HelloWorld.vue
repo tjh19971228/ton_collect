@@ -9,7 +9,7 @@ import { TonConnectUI } from "@tonconnect/ui";
 
 const tonConnectUI = new TonConnectUI({
   manifestUrl:
-    "https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json",
+    "https://tjh19971228.github.io/ton_collect/tonconnect-mainfest.json",
   buttonRootId: "button",
 });
 
