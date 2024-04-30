@@ -1,26 +1,23 @@
 <script setup>
 import { ref } from "vue";
 // import TonWeb from "tonweb";
+import { tonToNanoton } from "../util";
 import vconsole from "vconsole";
 
 // const tonweb = new TonWeb();
+
 new vconsole();
 import { TonConnectUI } from "@tonconnect/ui";
 
+const currentConnectAccount = ref("");
 const tonConnectUI = new TonConnectUI({
   manifestUrl:
     "https://tjh19971228.github.io/ton_collect/tonconnect-mainfest.json",
   buttonRootId: "button",
 });
 
-// const [currentConnectAccount, setCurrentConnectAccount] = ref("");
-// const [isConnected, setIsConnected] = ref(false);
-
-// tonConnectUI;
-
 tonConnectUI.onStatusChange((ConnectedWallet) => {
   // update state/reactive variables to show updates in the ui
-  console.log(ConnectedWallet);
   if (ConnectedWallet) {
     // debugger
     currentConnectAccount.value = ConnectedWallet.account.address;
@@ -34,17 +31,16 @@ defineProps({
 
 const count = ref(0);
 
-// console.log(tonweb.utils.toNano("2000000"));
 const transaction = {
+  validUntil: new Date().getTime() + 1000 * 60, 
   messages: [
     {
-      address: "0QDHx6SZztlphvTb1Yh1GOwsxi9P1bHrPZNKiaFdFE6YlIVl", // 目的地址
-      amount: 500000, //以nanotons计的Toncoin
+      address:
+        "0:8a5a9c7b70d329be670de4e6cce652d464765114aa98038c66c3d8ceaf2d19b0", // 目的地址
+      amount: tonToNanoton(0.05), //以nanotons计的Toncoin
     },
   ],
 };
-
-const currentConnectAccount = ref("");
 
 const send = async () => {
   await tonConnectUI.sendTransaction(transaction);
